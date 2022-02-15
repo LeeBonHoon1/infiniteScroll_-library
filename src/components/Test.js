@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, {useState, useEffect} from 'react'
 import InfiniteScroll from 'react-infinite-scroll-component';
 
-const App = () => {
+const Test = () => {
 
   const [items, setItems] = useState([]);
   const [noMore, setnoMore] = useState(true);
@@ -16,11 +16,7 @@ const App = () => {
     };
     getData();
   }, []);
-
-
   console.log(items)
-
-
   const fetchComments = async() => {
     const res = await axios.get(`http://localhost:4000/comments?_page=${page}=1&_limit=20`)
       const data = res.data
@@ -39,7 +35,6 @@ const App = () => {
 
 
   return (
-    <>
     <InfiniteScroll
       dataLength={items.length}
       next={fetchData}
@@ -63,8 +58,7 @@ const App = () => {
         })
       }
     </InfiniteScroll>
-    </>
   )
 }
 
-export default App
+export default Test
